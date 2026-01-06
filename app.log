@@ -1,0 +1,41 @@
+2026-01-02 15:50:55,075 - INFO - 开始执行测试流程
+2026-01-02 15:50:55,075 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-02 15:50:55,076 - ERROR - 串口错误: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-02 15:50:57,971 - INFO - 开始执行测试流程
+2026-01-02 15:50:57,971 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-02 15:50:57,972 - ERROR - 串口错误: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-02 15:50:58,223 - INFO - 开始执行测试流程
+2026-01-02 15:50:58,223 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-02 15:50:58,223 - ERROR - 串口错误: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-02 15:50:58,406 - INFO - 开始执行测试流程
+2026-01-02 15:50:58,406 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-02 15:50:58,406 - ERROR - 串口错误: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-02 15:50:58,557 - INFO - 开始执行测试流程
+2026-01-02 15:50:58,557 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-02 15:50:58,557 - ERROR - 串口错误: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-03 13:38:39,030 - INFO - 开始执行测试流程
+2026-01-03 13:38:39,033 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-03 13:38:39,033 - ERROR - 串口错误: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-03 13:38:39,793 - INFO - 开始执行测试流程
+2026-01-03 13:38:39,793 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-03 13:38:39,793 - ERROR - 串口错误: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-03 13:38:40,007 - INFO - 开始执行测试流程
+2026-01-03 13:38:40,007 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-03 13:38:40,007 - ERROR - 串口错误: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-06 11:15:54,591 - INFO - 开始执行测试流程
+2026-01-06 11:15:54,592 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-06 11:15:54,592 - ERROR - 串口错误: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-06 11:16:03,934 - ERROR - 命令执行失败: help, 错误: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-06 11:16:04,632 - ERROR - 命令执行失败: Start_test, 错误: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-06 11:16:05,184 - ERROR - 命令执行失败: End_test pass, 错误: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-06 11:16:05,717 - ERROR - 命令执行失败: End_test fail, 错误: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-06 11:16:06,249 - ERROR - 命令执行失败: Reset, 错误: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-06 11:16:06,767 - ERROR - 命令执行失败: Is_Button_Pressed, 错误: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-06 11:16:07,300 - ERROR - 命令执行失败: CYLINDER_RESET, 错误: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-06 11:16:07,765 - ERROR - 命令执行失败: CYLINDER_EXERCISE RIGHT, 错误: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-06 11:16:08,265 - ERROR - 命令执行失败: CYLINDER_EXERCISE LEFT, 错误: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-06 11:16:08,815 - ERROR - 命令执行失败: FixtureSN, 错误: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-06 11:16:09,383 - ERROR - 命令执行失败: Version, 错误: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-06 13:23:49,095 - INFO - 开始执行测试流程
+2026-01-06 13:23:49,097 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-06 13:23:49,097 - ERROR - 串口错误: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
