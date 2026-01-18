@@ -1,36 +1,284 @@
-2026-01-07 16:20:13,925 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
-2026-01-07 16:20:15,142 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
-2026-01-07 16:20:16,024 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
-2026-01-07 16:20:17,356 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
-2026-01-07 16:20:17,959 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
-2026-01-07 16:20:18,640 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
-2026-01-07 16:20:19,292 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
-2026-01-07 16:20:19,825 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
-2026-01-07 16:20:20,459 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
-2026-01-16 15:30:36,487 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
-2026-01-16 15:30:37,121 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
-2026-01-16 15:30:37,621 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
-2026-01-16 15:30:38,738 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
-2026-01-16 15:30:39,353 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
-2026-01-16 15:30:39,920 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
-2026-01-16 15:30:40,504 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
-2026-01-16 15:30:41,036 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
-2026-01-16 15:30:41,537 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
-2026-01-16 15:30:42,070 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
-2026-01-16 15:30:42,736 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
-2026-01-16 15:30:48,985 - INFO - 开始执行测试流程
-2026-01-16 15:30:48,985 - INFO - 尝试连接串口 /dev/ttyUSB0
-2026-01-16 15:30:48,986 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
-2026-01-16 15:30:48,986 - ERROR - 串口错误: 无法获取串口连接
-2026-01-16 15:30:49,619 - INFO - 开始执行测试流程
-2026-01-16 15:30:49,619 - INFO - 尝试连接串口 /dev/ttyUSB0
-2026-01-16 15:30:49,619 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
-2026-01-16 15:30:49,619 - ERROR - 串口错误: 无法获取串口连接
-2026-01-16 15:30:50,025 - INFO - 开始执行测试流程
-2026-01-16 15:30:50,025 - INFO - 尝试连接串口 /dev/ttyUSB0
-2026-01-16 15:30:50,025 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
-2026-01-16 15:30:50,025 - ERROR - 串口错误: 无法获取串口连接
-2026-01-16 15:30:50,602 - INFO - 开始执行测试流程
-2026-01-16 15:30:50,602 - INFO - 尝试连接串口 /dev/ttyUSB0
-2026-01-16 15:30:50,602 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
-2026-01-16 15:30:50,602 - ERROR - 串口错误: 无法获取串口连接
+2026-01-18 11:35:20,313 - INFO - 开始执行测试流程
+2026-01-18 11:35:20,314 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 11:35:29,897 - INFO - 执行停止操作
+2026-01-18 11:35:32,664 - INFO - 开始执行测试流程
+2026-01-18 11:35:32,664 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 11:37:47,380 - INFO - 执行停止操作
+2026-01-18 11:37:48,558 - INFO - 开始执行测试流程
+2026-01-18 11:37:48,558 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 11:37:50,280 - INFO - 执行停止操作
+2026-01-18 11:37:50,766 - INFO - 开始执行测试流程
+2026-01-18 11:37:50,766 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 11:50:42,195 - INFO - 开始执行测试流程
+2026-01-18 11:50:42,196 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 11:53:10,316 - INFO - 开始执行测试流程
+2026-01-18 11:53:10,317 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 11:53:11,869 - INFO - 执行停止操作
+2026-01-18 11:53:15,554 - INFO - 开始执行测试流程
+2026-01-18 11:53:15,554 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 11:53:17,331 - INFO - 执行停止操作
+2026-01-18 11:53:20,056 - INFO - 开始执行测试流程
+2026-01-18 11:53:20,056 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 11:53:21,156 - INFO - 执行停止操作
+2026-01-18 11:54:56,666 - INFO - 开始执行测试流程
+2026-01-18 11:54:56,667 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 12:01:48,697 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:01:51,141 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:01:52,079 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:01:52,688 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:14:27,210 - INFO - 开始执行测试流程
+2026-01-18 12:14:27,210 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 12:14:27,210 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:14:27,210 - ERROR - 串口错误: 无法获取串口连接
+2026-01-18 12:18:57,610 - INFO - 开始执行测试流程
+2026-01-18 12:18:57,611 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 12:18:57,611 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:18:57,611 - ERROR - 串口错误: 无法获取串口连接
+2026-01-18 12:19:37,814 - INFO - 开始执行测试流程
+2026-01-18 12:19:37,814 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 12:19:37,814 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:19:37,814 - ERROR - 串口错误: 无法获取串口连接
+2026-01-18 12:19:39,260 - INFO - 开始执行测试流程
+2026-01-18 12:19:39,261 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 12:19:39,261 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:19:39,261 - ERROR - 串口错误: 无法获取串口连接
+2026-01-18 12:19:40,245 - INFO - 开始执行测试流程
+2026-01-18 12:19:40,245 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 12:19:40,245 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:19:40,245 - ERROR - 串口错误: 无法获取串口连接
+2026-01-18 12:19:43,735 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:19:44,407 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:19:45,073 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:19:45,677 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:19:46,323 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:19:46,815 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:19:47,284 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:19:47,744 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:19:48,569 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:19:49,118 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:33:37,493 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:33:38,498 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:33:39,999 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:33:41,732 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:33:42,418 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:33:43,376 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:33:44,075 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:33:44,677 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:33:45,369 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:38:01,547 - INFO - 开始执行测试流程
+2026-01-18 12:38:01,548 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 12:38:01,549 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:38:01,549 - ERROR - 串口错误: 无法获取串口连接
+2026-01-18 12:38:14,354 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:38:17,113 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:38:18,703 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:38:20,373 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:38:21,297 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:38:21,931 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:38:22,801 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:38:24,300 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:38:24,807 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:45:37,029 - INFO - 开始执行测试流程
+2026-01-18 12:45:37,031 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 12:45:37,031 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:45:37,031 - ERROR - 串口错误: 无法获取串口连接
+2026-01-18 12:46:35,459 - INFO - 开始执行测试流程
+2026-01-18 12:46:35,459 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 12:46:35,459 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:46:35,459 - ERROR - 串口错误: 无法获取串口连接
+2026-01-18 12:46:40,024 - INFO - 开始执行测试流程
+2026-01-18 12:46:40,024 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 12:46:40,024 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:46:40,024 - ERROR - 串口错误: 无法获取串口连接
+2026-01-18 12:46:40,739 - INFO - 开始执行测试流程
+2026-01-18 12:46:40,740 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 12:46:40,740 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:46:40,740 - ERROR - 串口错误: 无法获取串口连接
+2026-01-18 12:46:41,227 - INFO - 开始执行测试流程
+2026-01-18 12:46:41,227 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 12:46:41,227 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:46:41,227 - ERROR - 串口错误: 无法获取串口连接
+2026-01-18 12:46:42,153 - INFO - 开始执行测试流程
+2026-01-18 12:46:42,153 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 12:46:42,153 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:46:42,153 - ERROR - 串口错误: 无法获取串口连接
+2026-01-18 12:46:42,928 - INFO - 开始执行测试流程
+2026-01-18 12:46:42,928 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 12:46:42,928 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:46:42,928 - ERROR - 串口错误: 无法获取串口连接
+2026-01-18 12:46:43,598 - INFO - 开始执行测试流程
+2026-01-18 12:46:43,598 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 12:46:43,598 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:46:43,598 - ERROR - 串口错误: 无法获取串口连接
+2026-01-18 12:46:44,088 - INFO - 开始执行测试流程
+2026-01-18 12:46:44,088 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 12:46:44,089 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:46:44,089 - ERROR - 串口错误: 无法获取串口连接
+2026-01-18 12:46:44,692 - INFO - 开始执行测试流程
+2026-01-18 12:46:44,692 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 12:46:44,693 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:46:44,693 - ERROR - 串口错误: 无法获取串口连接
+2026-01-18 12:46:45,240 - INFO - 开始执行测试流程
+2026-01-18 12:46:45,240 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 12:46:45,240 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:46:45,241 - ERROR - 串口错误: 无法获取串口连接
+2026-01-18 12:50:44,488 - INFO - 开始执行测试流程
+2026-01-18 12:50:44,488 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 12:50:44,489 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:50:44,489 - ERROR - 串口错误: 无法获取串口连接
+2026-01-18 12:54:01,214 - INFO - 开始执行测试流程
+2026-01-18 12:54:01,215 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 12:54:01,215 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:54:01,216 - ERROR - 串口错误: 无法获取串口连接
+2026-01-18 12:54:03,706 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:54:04,414 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:54:04,916 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:54:05,442 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:54:06,074 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:54:06,788 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:54:07,213 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:54:08,312 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:54:08,664 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:54:09,020 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:54:09,401 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:54:26,738 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:54:27,128 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:54:27,532 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:54:27,836 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:54:30,127 - INFO - 开始执行测试流程
+2026-01-18 12:54:30,128 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 12:54:30,128 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:54:30,128 - ERROR - 串口错误: 无法获取串口连接
+2026-01-18 12:54:31,831 - INFO - 开始执行测试流程
+2026-01-18 12:54:31,832 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 12:54:31,832 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:54:31,832 - ERROR - 串口错误: 无法获取串口连接
+2026-01-18 12:54:32,019 - INFO - 开始执行测试流程
+2026-01-18 12:54:32,020 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 12:54:32,020 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:54:32,020 - ERROR - 串口错误: 无法获取串口连接
+2026-01-18 12:55:14,295 - INFO - 开始执行测试流程
+2026-01-18 12:55:14,296 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 12:55:14,296 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 12:55:14,296 - ERROR - 串口错误: 无法获取串口连接
+2026-01-18 13:04:30,815 - INFO - 开始执行测试流程
+2026-01-18 13:04:30,815 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 13:04:30,815 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 13:04:30,815 - ERROR - 串口错误: 无法获取串口连接
+2026-01-18 13:04:31,713 - INFO - 开始执行测试流程
+2026-01-18 13:04:31,713 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 13:04:31,713 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 13:04:31,713 - ERROR - 串口错误: 无法获取串口连接
+2026-01-18 13:04:37,747 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 13:04:38,524 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 13:04:39,759 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 13:04:40,771 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 13:04:41,895 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 13:04:42,327 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 13:04:42,735 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 13:04:43,255 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 13:04:44,520 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 13:19:50,407 - INFO - 开始执行测试流程
+2026-01-18 13:19:50,407 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 13:19:50,407 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 13:19:50,407 - ERROR - 串口错误: 无法获取串口连接
+2026-01-18 13:20:17,354 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 13:20:17,762 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 13:20:18,139 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 13:33:18,484 - ERROR - TCP/IP连接失败: [Errno 61] Connection refused
+2026-01-18 13:33:19,486 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:33:20,857 - INFO - 开始执行测试流程
+2026-01-18 13:33:20,858 - INFO - 尝试连接串口 /dev/ttyUSB0
+2026-01-18 13:33:20,858 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 13:33:20,858 - ERROR - 串口错误: 无法获取串口连接
+2026-01-18 13:33:24,486 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:33:25,917 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 13:33:26,310 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 13:33:26,688 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 13:33:27,012 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 13:33:27,317 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 13:33:27,656 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 13:33:28,089 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 13:33:28,714 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2026-01-18 13:33:29,521 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:33:39,068 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:33:44,070 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:33:49,071 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:33:54,073 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:33:59,074 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:34:04,076 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:34:09,076 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:34:14,077 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:34:19,079 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:34:24,080 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:34:29,081 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:34:34,083 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:34:39,085 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:34:44,086 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:34:49,087 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:34:54,089 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:34:59,090 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:35:04,092 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:35:09,092 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:35:14,094 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:35:19,096 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:35:24,097 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:35:29,099 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:35:34,100 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:35:39,102 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:35:44,103 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:35:49,105 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:35:54,107 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:35:59,107 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:36:04,109 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:36:09,111 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:36:14,113 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:36:19,114 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:36:24,116 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:36:29,117 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:36:34,118 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:36:39,119 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:36:44,121 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:36:49,122 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:36:54,124 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:36:59,126 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:37:04,127 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:37:09,129 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:37:14,130 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:37:19,132 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:37:24,133 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:37:29,135 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:37:34,136 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:37:39,138 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:37:44,139 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:37:49,141 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:37:54,143 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:37:59,144 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:38:04,145 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:38:09,146 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:38:14,148 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:38:19,149 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:38:24,151 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:38:29,152 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:38:34,153 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:38:39,154 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:38:44,156 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:38:49,158 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:38:54,159 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:38:59,161 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:39:04,162 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:39:09,164 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:39:14,165 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:39:19,167 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:39:24,168 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:39:29,169 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:39:34,170 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:39:39,171 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:39:44,172 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:39:49,174 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:39:54,176 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:39:59,177 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:40:04,179 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:40:09,179 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:40:14,180 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'
+2026-01-18 13:40:19,181 - ERROR - 无法连接第二个串口: [Errno 2] could not open port /dev/ttyUSB1: [Errno 2] No such file or directory: '/dev/ttyUSB1'

@@ -2,7 +2,9 @@ import tkinter as tk
 import serial
 import time
 import logging
-from tkinter import scrolledtext
+import csv
+import socket  # 添加socket导入
+from tkinter import filedialog, scrolledtext
 
 # 配置日志记录
 logging.basicConfig(
@@ -18,6 +20,20 @@ logging.basicConfig(
 is_running = False
 current_serial = None
 serial_connection = None  # 新增全局串口连接
+test_results_data = []  # 存储测试结果数据
+test_start_time = None
+test_end_time = None
+
+# 第二个串口连接相关变量
+second_serial_connection = None
+second_serial_port = '/dev/ttyUSB1'  # 第二个串口端口
+second_serial_baudrate = 115200  # 波特率
+
+# TCP/IP连接相关变量
+tcp_socket = None
+tcp_connected = False
+tcp_ip_address = "127.0.0.1"  # 默认IP地址
+tcp_port = 8080  # 默认端口
 
 # 全局日志窗口引用
 log_window = None
@@ -37,6 +53,19 @@ def get_serial_connection():
     return serial_connection
 
 
+def get_second_serial_connection():
+    """获取第二个串口连接，如果未连接则新建连接"""
+    global second_serial_connection
+    if second_serial_connection is None or not second_serial_connection.is_open:
+        try:
+            second_serial_connection = serial.Serial(second_serial_port, second_serial_baudrate, timeout=2)
+            time.sleep(0.5)  # 等待连接稳定
+        except serial.SerialException as e:
+            logging.error(f"无法连接第二个串口: {str(e)}")
+            return None
+    return second_serial_connection
+
+
 def send_command(ser, command):
     """发送命令到设备"""
     full_command = command + '\r\n'
@@ -54,6 +83,30 @@ def send_command(ser, command):
         time.sleep(0.01)
 
     logging.info(f"发送命令: {command}, 响应: {response}")
+    return response
+
+
+def send_command_to_second_device(command):
+    """发送命令到第二个设备"""
+    ser = get_second_serial_connection()
+    if ser is None:
+        return None
+
+    full_command = command + '\r\n'
+    ser.write(full_command.encode('ascii'))
+    time.sleep(0.5)  # 等待响应
+
+    # 读取响应
+    response = ""
+    start_time = time.time()
+    while time.time() - start_time < 2:  # 最多等待2秒
+        if ser.in_waiting > 0:
+            response += ser.read(ser.in_waiting).decode('ascii', errors='ignore')
+        if response and '\n' in response:  # 如果有换行符，认为响应完整
+            break
+        time.sleep(0.01)
+
+    logging.info(f"发送到第二设备命令: {command}, 响应: {response}")
     return response
 
 
@@ -86,12 +139,91 @@ def execute_command(command):
         logging.error(f"命令执行失败: {command}, 错误: {str(e)}")
 
 
+def connect_tcp(ip_address="127.0.0.1", port=8080):
+    """连接TCP/IP服务器"""
+    global tcp_socket, tcp_connected, tcp_ip_address, tcp_port
+    tcp_ip_address = ip_address
+    tcp_port = port
+
+    try:
+        tcp_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        tcp_socket.settimeout(5)  # 设置5秒超时
+        tcp_socket.connect((tcp_ip_address, tcp_port))
+        tcp_connected = True
+        logging.info(f"TCP/IP连接成功: {tcp_ip_address}:{tcp_port}")
+        return True
+    except Exception as e:
+        logging.error(f"TCP/IP连接失败: {str(e)}")
+        tcp_connected = False
+        return False
+
+
+def send_tcp_data(data):
+    """通过TCP/IP发送数据"""
+    global tcp_socket, tcp_connected
+    if tcp_connected and tcp_socket:
+        try:
+            tcp_socket.sendall(data.encode('utf-8'))
+            logging.info(f"TCP/IP发送数据: {data}")
+            return True
+        except Exception as e:
+            logging.error(f"TCP/IP发送数据失败: {str(e)}")
+            tcp_connected = False
+            return False
+    else:
+        logging.warning("TCP/IP未连接，无法发送数据")
+        return False
+
+
+def disconnect_tcp():
+    """断开TCP/IP连接"""
+    global tcp_socket, tcp_connected
+    if tcp_socket:
+        try:
+            tcp_socket.close()
+            logging.info("TCP/IP连接已断开")
+        except:
+            pass
+    tcp_socket = None
+    tcp_connected = False
+
+
+def read_second_device_info():
+    """读取第二个设备的信息"""
+    info_response = send_command_to_second_device('INFO')  # 根据实际设备协议调整命令
+    if info_response:
+        return info_response
+    return None
+
+
+def periodically_read_and_upload():
+    """定期读取第二设备信息并上传到TCP服务器"""
+    info = read_second_device_info()
+    if info:
+        # 准备上传数据
+        upload_data = {
+            'device_type': 'second_device',
+            'timestamp': time.time(),
+            'info': info
+        }
+        # 发送数据到TCP服务器
+        send_tcp_data(str(upload_data))
+
+    # 5秒后再次执行
+    root.after(5000, periodically_read_and_upload)
+
+
 def run_function():
     """启动测试流程"""
-    global is_running, current_serial
+    global is_running, current_serial, test_results_data, test_start_time, test_end_time
 
     if not is_running:  # 防止重复启动
         logging.info("开始执行测试流程")
+        # 清空之前的测试结果
+        test_results_data = []
+        # 记录测试开始时间
+        test_start_time = time.strftime('%Y-%m-%d %H:%M:%S')
+
         is_running = True
         run_button.config(state=tk.DISABLED)  # 禁用RUN按钮
         stop_button.config(state=tk.NORMAL)  # 启用STOP按钮
@@ -111,11 +243,31 @@ def run_function():
                 raise serial.SerialException("无法获取串口连接")
             logging.info("串口连接成功")
 
+            # 先获取设备序列号并填充到SN输入框
+            fixture_sn_response = send_command(current_serial, 'FixtureSN')
+            # 提取序列号（通常响应格式为 "FixtureSN: ABC123" 或类似格式）
+            extracted_sn = fixture_sn_response.strip()
+            if ':' in extracted_sn:
+                extracted_sn = extracted_sn.split(':', 1)[1].strip()
+            elif extracted_sn.startswith('FixtureSN'):
+                extracted_sn = extracted_sn[10:].strip()  # 移除'FixtureSN'前缀
+
+            # 更新SN输入框
+            sn_entry.delete(0, tk.END)
+            sn_entry.insert(0, extracted_sn)
+
             # 发送气缸向左运动命令
             result_left = send_command(current_serial, 'CYLINDER_EXERCISE LEFT')
             display_text.config(state=tk.NORMAL)
             display_text.insert(tk.END, f"向左运动: {result_left}\n")
             display_text.see(tk.END)
+
+            # 记录测试结果
+            test_results_data.append({
+                'command': 'CYLINDER_EXERCISE LEFT',
+                'result': result_left,
+                'timestamp': time.time() - start_time
+            })
 
             # 更新时间显示
             elapsed_time = time.time() - start_time
@@ -130,6 +282,13 @@ def run_function():
             display_text.insert(tk.END, f"向右运动: {result_right}\n")
             display_text.see(tk.END)
 
+            # 记录测试结果
+            test_results_data.append({
+                'command': 'CYLINDER_EXERCISE RIGHT',
+                'result': result_right,
+                'timestamp': time.time() - start_time
+            })
+
             # 更新时间显示
             elapsed_time = time.time() - start_time
             time_entry.delete(0, tk.END)
@@ -142,6 +301,9 @@ def run_function():
             total_time = time.time() - start_time
             time_entry.delete(0, tk.END)
             time_entry.insert(0, f"{total_time:.1f}s")
+
+            # 记录测试结束时间
+            test_end_time = time.strftime('%Y-%m-%d %H:%M:%S')
 
             # 假设测试成功，更新结果为Pass
             result_label.config(text="Pass", bg="lightgreen")
@@ -158,6 +320,8 @@ def run_function():
             display_text.config(state=tk.NORMAL)
             display_text.insert(tk.END, f"串口错误: {str(e)}\n")
             display_text.config(state=tk.DISABLED)
+            # 记录测试结束时间
+            test_end_time = time.strftime('%Y-%m-%d %H:%M:%S')
             # 测试失败，更新结果为Fail
             result_label.config(text="Fail", bg="red")
             is_running = False
@@ -165,7 +329,6 @@ def run_function():
             # 重置按钮状态
             run_button.config(state=tk.NORMAL)
             stop_button.config(state=tk.DISABLED)
-
 
 
 def stop_function():
@@ -242,17 +405,95 @@ def show_log_window():
         display_text.config(state=tk.DISABLED)
 
 
+def export_to_csv():
+    """导出测试结果到CSV文件"""
+    global test_results_data, test_start_time, test_end_time
+
+    # 获取保存文件路径
+    file_path = filedialog.asksaveasfilename(
+        defaultextension=".csv",
+        filetypes=[("CSV files", "*.csv"), ("All files", "*.*")],
+        title="保存测试结果"
+    )
+
+    if file_path:
+        try:
+            # 写入CSV文件
+            with open(file_path, 'w', newline='', encoding='utf-8') as csvfile:
+                fieldnames = ['SN', 'Command', 'Result', 'Timestamp', 'Total_Time', 'Test_Status', 'Start_Time',
+                              'End_Time']
+                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+                writer.writeheader()
+
+                # 写入测试数据
+                sn_value = sn_entry.get()  # 获取SN输入框的值
+                total_time = time_entry.get()  # 获取总时间
+                test_status = result_label.cget('text')  # 获取测试结果状态
+                start_time_str = test_start_time if test_start_time else 'N/A'
+                end_time_str = test_end_time if test_end_time else 'N/A'
+
+                for data in test_results_data:
+                    writer.writerow({
+                        'SN': sn_value,
+                        'Command': data['command'],
+                        'Result': data['result'],
+                        'Timestamp': f"{data['timestamp']:.2f}s",
+                        'Total_Time': total_time,
+                        'Test_Status': test_status,
+                        'Start_Time': start_time_str,
+                        'End_Time': end_time_str
+                    })
+
+                # 如果没有测试数据，至少输出一行基本信息
+                if not test_results_data:
+                    writer.writerow({
+                        'SN': sn_value,
+                        'Command': 'No test executed',
+                        'Result': 'N/A',
+                        'Timestamp': '0.00s',
+                        'Total_Time': total_time,
+                        'Test_Status': test_status,
+                        'Start_Time': start_time_str,
+                        'End_Time': end_time_str
+                    })
+
+            # 在界面上显示导出成功信息
+            display_text.config(state=tk.NORMAL)
+            display_text.insert(tk.END, f"\n测试结果已导出到: {file_path}\n")
+            display_text.see(tk.END)
+            display_text.config(state=tk.DISABLED)
+
+        except Exception as e:
+            display_text.config(state=tk.NORMAL)
+            display_text.insert(tk.END, f"导出CSV失败: {str(e)}\n")
+            display_text.see(tk.END)
+            display_text.config(state=tk.DISABLED)
+
+
 def cleanup_serial():
-    """清理串口连接"""
-    global serial_connection
+    """清理串口和TCP连接"""
+    global serial_connection, second_serial_connection
     if serial_connection and serial_connection.is_open:
         serial_connection.close()
         serial_connection = None
 
+    if second_serial_connection and second_serial_connection.is_open:
+        second_serial_connection.close()
+        second_serial_connection = None
+
+    # 断开TCP连接
+    if tcp_socket:
+        try:
+            tcp_socket.close()
+        except:
+            pass
+        tcp_socket = None
+
 
 # 创建主窗口
 root = tk.Tk()
-root.title("Simple RUN Result GUI")
+root.title("H60_mmwave GUI")
 root.geometry("850x550")
 
 # 设置主窗口背景色
@@ -302,7 +543,7 @@ button_frame = tk.Frame(display_frame, bg="white")
 button_frame.pack(fill=tk.X, pady=(0, 10))
 
 # 顶部按钮（Test Result, Test Process, Test Command）
-tk.Button(button_frame, text="Test Result", command=lambda: None, bg="lightblue").pack(side=tk.LEFT, padx=5)
+tk.Button(button_frame, text="Test Result", command=export_to_csv, bg="lightblue").pack(side=tk.LEFT, padx=5)
 tk.Button(button_frame, text="Test Process", command=show_log_window, bg="lightgreen").pack(side=tk.LEFT, padx=5)
 tk.Button(button_frame, text="Test Command", command=show_command_window, bg="lightyellow").pack(side=tk.LEFT, padx=5)
 
@@ -319,6 +560,10 @@ display_text.config(state=tk.DISABLED)
 
 # 设置窗口关闭事件
 root.protocol("WM_DELETE_WINDOW", lambda: [cleanup_serial(), root.destroy()])
+
+# 在程序启动时连接TCP并启动定期读取
+connect_tcp()
+root.after(1000, periodically_read_and_upload)  # 1秒后开始
 
 # 启动主循环
 root.mainloop()
