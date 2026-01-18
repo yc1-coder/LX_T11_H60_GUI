@@ -17,36 +17,71 @@ logging.basicConfig(
 # 添加全局变量
 is_running = False
 current_serial = None
+serial_connection = None  # 新增全局串口连接
 
 # 全局日志窗口引用
 log_window = None
 log_text_widget = None
 
 
+def get_serial_connection():
+    """获取串口连接，如果未连接则新建连接"""
+    global serial_connection
+    if serial_connection is None or not serial_connection.is_open:
+        try:
+            serial_connection = serial.Serial('/dev/ttyUSB0', 115200, timeout=2)
+            time.sleep(0.5)  # 等待连接稳定
+        except serial.SerialException as e:
+            logging.error(f"无法连接串口: {str(e)}")
+            return None
+    return serial_connection
+
+
 def send_command(ser, command):
     """发送命令到设备"""
     full_command = command + '\r\n'
     ser.write(full_command.encode('ascii'))
-    time.sleep(0.1)
-    response = ser.read_all().decode('ascii')
+    time.sleep(0.5)  # 增加等待时间
+
+    # 读取响应
+    response = ""
+    start_time = time.time()
+    while time.time() - start_time < 2:  # 最多等待2秒
+        if ser.in_waiting > 0:
+            response += ser.read(ser.in_waiting).decode('ascii', errors='ignore')
+        if response and '\n' in response:  # 如果有换行符，认为响应完整
+            break
+        time.sleep(0.01)
+
     logging.info(f"发送命令: {command}, 响应: {response}")
     return response
 
 
 def execute_command(command):
     """执行指定的命令"""
+    global serial_connection
     try:
-        ser = serial.Serial('/dev/ttyUSB0', 115200, timeout=1)
+        ser = get_serial_connection()
+        if ser is None:
+            display_text.config(state=tk.NORMAL)
+            display_text.insert(tk.END, f"串口连接失败\n")
+            display_text.config(state=tk.DISABLED)
+            return
+
         result = send_command(ser, command)
         display_text.config(state=tk.NORMAL)
         display_text.insert(tk.END, f"{command}: {result}\n")
         display_text.see(tk.END)
         display_text.config(state=tk.DISABLED)
-        ser.close()
         logging.info(f"命令执行成功: {command}")
     except serial.SerialException as e:
         display_text.config(state=tk.NORMAL)
         display_text.insert(tk.END, f"串口错误: {str(e)}\n")
+        display_text.config(state=tk.DISABLED)
+        logging.error(f"命令执行失败: {command}, 错误: {str(e)}")
+    except Exception as e:
+        display_text.config(state=tk.NORMAL)
+        display_text.insert(tk.END, f"执行命令 {command} 时发生错误: {str(e)}\n")
         display_text.config(state=tk.DISABLED)
         logging.error(f"命令执行失败: {command}, 错误: {str(e)}")
 
@@ -70,7 +105,10 @@ def run_function():
 
         try:
             logging.info("尝试连接串口 /dev/ttyUSB0")
-            current_serial = serial.Serial('/dev/ttyUSB0', 115200, timeout=1)
+            # 使用统一的串口连接管理
+            current_serial = get_serial_connection()
+            if current_serial is None:
+                raise serial.SerialException("无法获取串口连接")
             logging.info("串口连接成功")
 
             # 发送气缸向左运动命令
@@ -109,8 +147,6 @@ def run_function():
             result_label.config(text="Pass", bg="lightgreen")
             logging.info("测试完成，结果: Pass")
 
-            current_serial.close()
-            current_serial = None
             is_running = False
 
             # 重置按钮状态
@@ -129,6 +165,7 @@ def run_function():
             # 重置按钮状态
             run_button.config(state=tk.NORMAL)
             stop_button.config(state=tk.DISABLED)
+
 
 
 def stop_function():
@@ -187,35 +224,30 @@ def show_command_window():
 
 
 def show_log_window():
-    """显示日志窗口"""
-    global log_window, log_text_widget
-
-    if log_window is not None and log_window.winfo_exists():
-        # 如果窗口已存在，将其带到前台
-        log_window.lift()
-        return
-
-    # 创建日志窗口
-    log_window = tk.Toplevel(root)
-    log_window.title("Test Process Log")
-    log_window.geometry("600x400")
-
-    # 创建滚动文本框
-    log_text_widget = scrolledtext.ScrolledText(log_window, wrap=tk.WORD, width=70, height=25)
-    log_text_widget.pack(padx=10, pady=10, fill=tk.BOTH, expand=True)
-
-    # 从日志文件加载内容
+    """在主文本框显示日志内容"""
     try:
         with open('app.log', 'r', encoding='utf-8') as f:
             log_content = f.read()
-            log_text_widget.insert(tk.END, log_content)
-            log_text_widget.see(tk.END)
+            display_text.config(state=tk.NORMAL)
+            display_text.delete(1.0, tk.END)  # 清空当前内容
+            display_text.insert(tk.END, "=== 日志内容 ===\n")
+            display_text.insert(tk.END, log_content)
+            display_text.see(tk.END)
+            display_text.config(state=tk.DISABLED)
     except FileNotFoundError:
-        log_text_widget.insert(tk.END, "日志文件不存在，将从现在开始记录日志...\n")
-        log_text_widget.see(tk.END)
+        display_text.config(state=tk.NORMAL)
+        display_text.delete(1.0, tk.END)  # 清空当前内容
+        display_text.insert(tk.END, "日志文件不存在，将从现在开始记录日志...\n")
+        display_text.see(tk.END)
+        display_text.config(state=tk.DISABLED)
 
-    # 设置为只读
-    log_text_widget.config(state=tk.DISABLED)
+
+def cleanup_serial():
+    """清理串口连接"""
+    global serial_connection
+    if serial_connection and serial_connection.is_open:
+        serial_connection.close()
+        serial_connection = None
 
 
 # 创建主窗口
@@ -284,6 +316,9 @@ display_text = tk.Text(
 display_text.pack()
 
 display_text.config(state=tk.DISABLED)
+
+# 设置窗口关闭事件
+root.protocol("WM_DELETE_WINDOW", lambda: [cleanup_serial(), root.destroy()])
 
 # 启动主循环
 root.mainloop()
