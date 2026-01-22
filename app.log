@@ -574,3 +574,18 @@
 2026-01-22 13:31:12,385 - ERROR - 执行adb命令失败: [Errno 2] No such file or directory: 'adb'
 2026-01-22 13:31:17,400 - ERROR - 执行adb命令失败: [Errno 2] No such file or directory: 'adb'
 2026-01-22 13:31:22,415 - ERROR - 执行adb命令失败: [Errno 2] No such file or directory: 'adb'
+2026-01-22 20:48:17,296 - ERROR - TCP/IP连接失败: [Errno 61] Connection refused
+2026-01-22 20:48:18,305 - ERROR - 执行adb命令失败: [Errno 2] No such file or directory: 'adb'
+2026-01-22 20:48:23,314 - ERROR - 执行adb命令失败: [Errno 2] No such file or directory: 'adb'
+2026-01-22 20:48:28,323 - ERROR - 执行adb命令失败: [Errno 2] No such file or directory: 'adb'
+2026-01-22 21:05:40,691 - ERROR - TCP/IP连接失败: [Errno 61] Connection refused
+2026-01-22 21:05:41,692 - ERROR - 执行pexpect命令失败: The command was not found or was not executable: adb.
+2026-01-22 21:05:43,675 - INFO - 开始执行测试流程
+2026-01-22 21:05:43,675 - INFO - 尝试连接串口 /dev/cu.usbserial-Control
+2026-01-22 21:05:43,676 - ERROR - 无法连接串口: [Errno 2] could not open port /dev/cu.usbserial-Control: [Errno 2] No such file or directory: '/dev/cu.usbserial-Control'
+2026-01-22 21:05:43,676 - ERROR - 串口错误: 无法获取串口连接
+2026-01-22 21:05:46,696 - ERROR - 执行pexpect命令失败: The command was not found or was not executable: adb.
+2026-01-22 21:05:51,697 - ERROR - 执行pexpect命令失败: The command was not found or was not executable: adb.
+2026-01-22 21:18:59,785 - ERROR - TCP/IP连接失败: [Errno 61] Connection refused
+2026-01-22 21:19:00,788 - ERROR - 执行pexpect命令失败: The command was not found or was not executable: adb.
+2026-01-22 21:19:05,791 - ERROR - 执行pexpect命令失败: The command was not found or was not executable: adb.

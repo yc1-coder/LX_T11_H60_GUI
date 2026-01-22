@@ -4,9 +4,8 @@ import time
 import logging
 import csv
 import socket  # 添加socket导入
-import subprocess  # 添加subprocess导入
 from tkinter import filedialog, scrolledtext
-
+import pexpect
 # 配置日志记录
 logging.basicConfig(
     level=logging.INFO,
@@ -165,48 +164,62 @@ def disconnect_tcp():
     tcp_connected = False
 
 
+
 def read_mmwave_device_info():
-    """读取mmwave设备信息，使用系统adb命令"""
+    """读取mmwave设备信息，使用pexpect处理交互式adb会话"""
     try:
-        # 1. 执行adb devices
-        result1 = subprocess.run(['adb', 'devices'], capture_output=True, text=True, timeout=10)
-        logging.info(f"adb devices output: {result1.stdout}")
+        # 1. 启动adb shell会话
+        child = pexpect.spawn('adb shell')
+        child.timeout = 10
 
-        # 2. 执行adb wait-for-device
-        result2 = subprocess.run(['adb', 'wait-for-device'], capture_output=True, text=True, timeout=10)
-        logging.info(f"adb wait-for-device output: {result2.stdout}")
+        # 2. 执行 nanokdp 命令
+        child.sendline('nanokdp -c 1000000,n,8,1')
 
-        # 3. 执行adb shell cat /etc/os-release
-        result3 = subprocess.run(['adb', 'shell', 'cat', '/etc/os-release'], capture_output=True, text=True, timeout=10)
-        logging.info(f"adb shell cat output: {result3.stdout}")
+        # 3. 等待命令提示符出现（可能需要根据实际输出调整正则表达式）
+        index = child.expect([pexpect.TIMEOUT, r'.*# ', r'.*\$ ', '.*>', pexpect.EOF], timeout=10)
 
-        # 4. 执行nanokdp -c 1000000,n,8,1 (如果这是adb shell命令)
-        result4 = subprocess.run(['adb', 'shell', 'nanokdp', '-c', '1000000,n,8,1'], capture_output=True, text=True,timeout=10)
-        logging.info(f"nanokdp output: {result4.stdout}")
+        if index == 0:  # TIMEOUT
+            logging.error("等待nanokdp命令提示符超时")
+            child.close()
+            return None
 
-        # 5. 发送数字2 (11201) - 这个步骤可能需要特殊处理
-        result5 = subprocess.run(['adb','shell','2'],capture_output=True,text=True,timeout=10)
-        logging.info(f"数字2 output: {result5.stdout}")
+        # 4. 发送数字2并回车
+        child.sendline('2')
 
-        # 6. 执行mmwave status
-        result6 = subprocess.run(['adb', 'shell', 'mmwave', 'status'], capture_output=True, text=True, timeout=10)
-        logging.info(f"mmwave status output: {result6.stdout}")
+        # 5. 等待新的命令提示符
+        index = child.expect([pexpect.TIMEOUT, r'.*# ', r'.*\$ ', '.*>', pexpect.EOF], timeout=10)
 
-        # 7. 解析输出，查找Device信息
-        if result6.stdout:
-            lines = result6.stdout.split('\n')
-            for line in lines:
-                line = line.strip()
-                if line.startswith('Device:'):
-                    device_part = line[7:].strip()  # 去掉 "Device:" 前缀
-                    return device_part
+        if index == 0:  # TIMEOUT
+            logging.error("等待数字2后的命令提示符超时")
+            child.close()
+            return None
 
+        # 6. 执行 mmwave status 命令
+        child.sendline('mmwave status')
+
+        # 7. 获取mmwave status的输出
+        child.expect([pexpect.TIMEOUT, r'.*# ', r'.*\$ ', pexpect.EOF], timeout=10)
+        output = child.before.decode('utf-8')
+
+        logging.info(f"mmwave status output: {output}")
+
+        # 8. 解析输出，查找Device信息
+        lines = output.split('\n')
+        for line in lines:
+            line = line.strip()
+            if line.startswith('Device:'):
+                device_part = line[7:].strip()  # 去掉 "Device:" 前缀
+                child.close()
+                return device_part
+
+        child.close()
         return None
-    except subprocess.TimeoutExpired:
-        logging.error("adb命令执行超时")
+
+    except pexpect.exceptions.TIMEOUT:
+        logging.error("pexpect命令执行超时")
         return None
     except Exception as e:
-        logging.error(f"执行adb命令失败: {str(e)}")
+        logging.error(f"执行pexpect命令失败: {str(e)}")
         return None
 
 
