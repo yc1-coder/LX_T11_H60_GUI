@@ -4,6 +4,7 @@ import time
 import logging
 import csv
 import socket  # 添加socket导入
+import subprocess  # 添加subprocess导入
 from tkinter import filedialog, scrolledtext
 
 # 配置日志记录
@@ -26,7 +27,7 @@ test_end_time = None
 
 # 第二个串口连接相关变量
 second_serial_connection = None
-second_serial_port = '/dev/ttyUSB1'  # 第二个串口端口
+second_serial_port = '/dev/cu.usbserial-112201'  # 第二个串口端口
 second_serial_baudrate = 115200  # 波特率
 
 # TCP/IP连接相关变量
@@ -45,7 +46,7 @@ def get_serial_connection():
     global serial_connection
     if serial_connection is None or not serial_connection.is_open:
         try:
-            serial_connection = serial.Serial('/dev/ttyUSB0', 115200, timeout=2)
+            serial_connection = serial.Serial('/dev/cu.usbserial-Control', 115200, timeout=2)
             time.sleep(0.5)  # 等待连接稳定
         except serial.SerialException as e:
             logging.error(f"无法连接串口: {str(e)}")
@@ -83,30 +84,6 @@ def send_command(ser, command):
         time.sleep(0.01)
 
     logging.info(f"发送命令: {command}, 响应: {response}")
-    return response
-
-
-def send_command_to_second_device(command):
-    """发送命令到第二个设备"""
-    ser = get_second_serial_connection()
-    if ser is None:
-        return None
-
-    full_command = command + '\r\n'
-    ser.write(full_command.encode('ascii'))
-    time.sleep(0.5)  # 等待响应
-
-    # 读取响应
-    response = ""
-    start_time = time.time()
-    while time.time() - start_time < 2:  # 最多等待2秒
-        if ser.in_waiting > 0:
-            response += ser.read(ser.in_waiting).decode('ascii', errors='ignore')
-        if response and '\n' in response:  # 如果有换行符，认为响应完整
-            break
-        time.sleep(0.01)
-
-    logging.info(f"发送到第二设备命令: {command}, 响应: {response}")
     return response
 
 
@@ -188,29 +165,76 @@ def disconnect_tcp():
     tcp_connected = False
 
 
-def read_second_device_info():
-    """读取第二个设备的信息"""
-    info_response = send_command_to_second_device('INFO')  # 根据实际设备协议调整命令
-    if info_response:
-        return info_response
-    return None
+def read_mmwave_device_info():
+    """读取mmwave设备信息，使用系统adb命令"""
+    try:
+        # 1. 执行adb devices
+        result1 = subprocess.run(['adb', 'devices'], capture_output=True, text=True, timeout=10)
+        logging.info(f"adb devices output: {result1.stdout}")
+
+        # 2. 执行adb wait-for-device
+        result2 = subprocess.run(['adb', 'wait-for-device'], capture_output=True, text=True, timeout=10)
+        logging.info(f"adb wait-for-device output: {result2.stdout}")
+
+        # 3. 执行adb shell cat /etc/os-release
+        result3 = subprocess.run(['adb', 'shell', 'cat', '/etc/os-release'], capture_output=True, text=True, timeout=10)
+        logging.info(f"adb shell cat output: {result3.stdout}")
+
+        # 4. 执行nanokdp -c 1000000,n,8,1 (如果这是adb shell命令)
+        result4 = subprocess.run(['adb', 'shell', 'nanokdp', '-c', '1000000,n,8,1'], capture_output=True, text=True,timeout=10)
+        logging.info(f"nanokdp output: {result4.stdout}")
+
+        # 5. 发送数字2 (11201) - 这个步骤可能需要特殊处理
+        result5 = subprocess.run(['adb','shell','2'],capture_output=True,text=True,timeout=10)
+        logging.info(f"数字2 output: {result5.stdout}")
+
+        # 6. 执行mmwave status
+        result6 = subprocess.run(['adb', 'shell', 'mmwave', 'status'], capture_output=True, text=True, timeout=10)
+        logging.info(f"mmwave status output: {result6.stdout}")
+
+        # 7. 解析输出，查找Device信息
+        if result6.stdout:
+            lines = result6.stdout.split('\n')
+            for line in lines:
+                line = line.strip()
+                if line.startswith('Device:'):
+                    device_part = line[7:].strip()  # 去掉 "Device:" 前缀
+                    return device_part
+
+        return None
+    except subprocess.TimeoutExpired:
+        logging.error("adb命令执行超时")
+        return None
+    except Exception as e:
+        logging.error(f"执行adb命令失败: {str(e)}")
+        return None
 
 
 def periodically_read_and_upload():
-    """定期读取第二设备信息并上传到TCP服务器"""
-    info = read_second_device_info()
+    """定期读取mmwave设备信息并上传到TCP服务器"""
+    info = read_mmwave_device_info()  # 替换为新函数
     if info:
         # 准备上传数据
         upload_data = {
-            'device_type': 'second_device',
+            'device_type': 'mmwave_device',
             'timestamp': time.time(),
             'info': info
         }
         # 发送数据到TCP服务器
         send_tcp_data(str(upload_data))
 
+        # 同时更新SN文本框
+        root.after(0, lambda: update_sn_display(info))
+
     # 5秒后再次执行
     root.after(5000, periodically_read_and_upload)
+
+
+def update_sn_display(device_info):
+    """更新SN显示框"""
+    if device_info:
+        sn_entry.delete(0, tk.END)
+        sn_entry.insert(0, device_info)
 
 
 def run_function():
@@ -236,7 +260,7 @@ def run_function():
         root.update_idletasks()  # 刷新界面
 
         try:
-            logging.info("尝试连接串口 /dev/ttyUSB0")
+            logging.info("尝试连接串口 /dev/cu.usbserial-Control")
             # 使用统一的串口连接管理
             current_serial = get_serial_connection()
             if current_serial is None:
@@ -294,7 +318,6 @@ def run_function():
             time_entry.delete(0, tk.END)
             time_entry.insert(0, f"{elapsed_time:.1f}s")
             root.update_idletasks()
-
             display_text.config(state=tk.DISABLED)
 
             # 测试完成，显示总时间
